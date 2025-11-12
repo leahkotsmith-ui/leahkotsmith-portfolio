@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Leah's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a472a;
+            --secondary-color: #2e5c3d;
+            --accent-color: #c5a572;
+            --text-color: #2d3436;
+            --background-color: #E1EAE3;
+            --gold: #c5a572;
+            --white: #ffffff;
+            --dark-gold: #b08d4f;
+        }
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            background: var(--background-color);
+            min-height: 100vh;
+            color: var(--text-color);
+            position: relative;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 0;
+            background: #e1eae3;
+            opacity: 1;
+            animation: none;
+        }
+        .background-shapes {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+            will-change: transform;
+            background: var(--accent-color);
+            animation: float 60s infinite;
+        }
+        .shape.circle1 {
+            width: 180px;
+            height: 180px;
+            top: 30%;
+            left: 0%;
+            background: var(--gold);
+        }
+        .shape.circle2 {
+            width: 120px;
+            height: 120px;
+            top: 66%;
+            left: 85%;
+            background: var(--dark-gold);
+        }
+        .shape.circle3 {
+            width: 100px;
+            height: 100px;
+            top: 8%;
+            left: 85%;
+            position: absolute;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.7;
+            will-change: transform;
+            animation: float 60s infinite;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(50px, 50px);
+            }
+            50% {
+                transform: translate(0, 100px);
+            }
+            75% {
+                transform: translate(-50px, 50px);
+            }
+        }
+
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            background: var(--background-color);
+            min-height: 100vh;
+            color: var(--text-color);
+            position: relative;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background: var(--primary-color);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 3px solid #c5a572;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 4rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            margin-top: 100px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .welcome-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            text-align: center;
+        }
+
+        /* Decorative Elements */
+        .decorative-plants {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 10;
+            overflow: visible;
+        }
+        
+        .plant {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 1;
+        }
+        
+        .plant-left {
+            top: 20px;
+            left: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cg transform='translate(40,40)'%3E%3C!-- Stem --%3E%3Cpath d='M-1,0 L1,0 L1,35 L-1,35 Z' fill='%231a472a' /%3E%3C!-- Small Leaf Right --%3E%3Cpath d='M1,20 C6,15 8,18 6,22 C4,26 0,25 1,20' fill='%232e5c3d' /%3E%3C!-- Small Leaf Left --%3E%3Cpath d='M-1,23 C-6,18 -8,21 -6,25 C-4,29 0,28 -1,23' fill='%232e5c3d' /%3E%3C!-- Flower --%3E%3Cg%3E%3C!-- Petals --%3E%3Cg%3E%3C!-- Right Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(0)' /%3E%3C!-- Bottom Right Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(60)' /%3E%3C!-- Bottom Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(120)' /%3E%3C!-- Bottom Left Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(180)' /%3E%3C!-- Top Left Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(240)' /%3E%3C!-- Top Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(300)' /%3E%3C!-- Outline All Petals --%3E%3Cg transform='rotate(0)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(60)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(120)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(180)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(240)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(300)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3C/g%3E%3C!-- Center --%3E%3Ccircle cx='0' cy='0' r='3' fill='%23c5a572' stroke='black' stroke-width='0.5' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: floatAnimation 4s ease-in-out infinite;
+        }
+        
+        .plant-right {
+            top: 20px;
+            right: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cg transform='translate(40,40)'%3E%3C!-- Stem --%3E%3Cpath d='M-1,0 L1,0 L1,35 L-1,35 Z' fill='%231a472a' /%3E%3C!-- Small Leaf Right --%3E%3Cpath d='M1,20 C6,15 8,18 6,22 C4,26 0,25 1,20' fill='%232e5c3d' /%3E%3C!-- Small Leaf Left --%3E%3Cpath d='M-1,23 C-6,18 -8,21 -6,25 C-4,29 0,28 -1,23' fill='%232e5c3d' /%3E%3C!-- Flower --%3E%3Cg%3E%3C!-- Petals --%3E%3Cg%3E%3C!-- Right Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(0)' /%3E%3C!-- Bottom Right Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(60)' /%3E%3C!-- Bottom Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(120)' /%3E%3C!-- Bottom Left Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(180)' /%3E%3C!-- Top Left Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(240)' /%3E%3C!-- Top Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(300)' /%3E%3C!-- Outline All Petals --%3E%3Cg transform='rotate(0)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(60)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(120)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(180)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(240)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(300)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3C/g%3E%3C!-- Center --%3E%3Ccircle cx='0' cy='0' r='3' fill='%23c5a572' stroke='black' stroke-width='0.5' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: floatAnimation 4s ease-in-out infinite;
+        }
+        
+        @keyframes floatAnimation {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Resume Page Specific Styles */
+        .resume-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+            margin: 1rem 0;
+        }
+
+        .download-button:hover {
+            background: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .resume-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 1px solid rgba(197, 165, 114, 0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .resume-section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resume-section h2 i {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .experience-item {
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--gold);
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-item h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .date {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .experience-item p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            background: var(--background-color);
+            padding: 0.75rem 1rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid var(--gold);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: var(--white);
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .achievements-list li::before {
+            content: "•";
+            color: var(--gold);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+            border-top: 3px solid var(--gold);
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape circle1"></div>
+        <div class="shape circle2"></div>
+        <div class="shape circle3"></div>
+    </div>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="hobbies.html">Hobbies</a>
+                <a href="discover.html">Discover UMD</a>
+                <a href="resume.html">Resume</a>
+                <a href="career.html">Career</a>
+                <a href="game.html">Game</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="decorative-plants">
+            <div class="plant plant-left"></div>
+            <div class="plant plant-right"></div>
+        </div>
+
+        <div class="resume-header">
+            <h1 class="welcome-text">Professional Resume</h1>
+            <a href="files/Leah Kotsmith Final Resume.pdf" download class="download-button" id="resume-download">
+                <i class="fas fa-download"></i>
+                Download PDF Resume
+            </a>
+            <canvas id="confetti-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:2000;display:none;"></canvas>
+            <div class="social-links">
+                <div class="social-links-container">
+                    <a href="https://www.linkedin.com/in/leah-kotsmith-59b1a835a" target="_blank" class="social-icon" title="Connect with me on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="social-links-container">
+                    <a href="mailto:leahkotsmith@gmail.com" class="social-icon" title="Email me"><i class="fas fa-envelope"></i></a>
+                    <span class="email-text">leahkotsmith@gmail.com</span>
+                </div>
+            </div>
+            <style>
+            .social-links {
+                margin-top: 2rem;
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+            .social-links-container {
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+                position: relative;
+                padding: 0.5rem;
+            }
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: var(--gold);
+                color: var(--white);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                border: 2px solid transparent;
+            }
+            .social-icon:hover {
+                transform: scale(1.1);
+                background: var(--primary-color);
+                border-color: var(--gold);
+            }
+            .email-text {
+                font-size: 1rem;
+                color: var(--primary-color);
+                margin-left: 0.5rem;
+                opacity: 0;
+                max-width: 0;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                white-space: nowrap;
+            }
+            .social-links-container:hover .email-text {
+                opacity: 1;
+                max-width: 300px;
+                margin-left: 1rem;
+            }
+            </style>
+        </div>
+
+        <div class="resume-section">
+            <h2><i class="fas fa-graduation-cap"></i>Education</h2>
+            <div class="experience-item">
+                <h3>University of Minnesota Duluth</h3>
+                <p class="date">2023 - Present</p>
+                <p>Bachelor of Business Administration in Accounting<br>
+                Minor in English<br>
+                GPA: 3.9</p>
+            </div>
+        </div>
+
+        <div class="resume-section">
+            <h2><i class="fas fa-briefcase"></i>Professional Experience</h2>
+            <div class="experience-item">
+                <h3>Great Clips</h3>
+                <p class="date">Receptionist | 2022 - Present</p>
+                <p>• Managed customer service operations and scheduling at a high-volume salon<br>
+                • Developed strong organizational and communication skills<br>
+                • Led and trained new team members on processes and procedures<br>
+                • Maintained accurate records and handled financial transactions</p>
+            </div>
+        </div>
+
+        <div class="resume-section">
+            <h2><i class="fas fa-star"></i>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Financial Analysis</div>
+                <div class="skill-item">Accounting Principles</div>
+                <div class="skill-item">Data Management</div>
+                <div class="skill-item">Communication</div>
+                <div class="skill-item">Organization</div>
+                <div class="skill-item">Leadership</div>
+                <div class="skill-item">Problem Solving</div>
+                <div class="skill-item">Team Collaboration</div>
+            </div>
+        </div>
+
+        <div class="resume-section">
+            <h2><i class="fas fa-trophy"></i>Achievements</h2>
+            <ul class="achievements-list">
+                <li>Dean's List: All semesters (2023-Present)</li>
+                <li>Maintained 3.9 GPA while participating in extracurricular activities</li>
+                <li>Advanced proficiency in financial and managerial accounting</li>
+            </ul>
+        </div>
+
+        <div class="resume-section">
+            <h2><i class="fas fa-book"></i>Relevant Coursework</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Financial Accounting</div>
+                <div class="skill-item">Managerial Accounting</div>
+                <div class="skill-item">Cost Accounting</div>
+                <div class="skill-item">Intermediate Accounting</div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Leah Kotsmith. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

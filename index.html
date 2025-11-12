@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leah's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Flower Decorations */
+        @keyframes floatAnimation {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(5px, -5px) rotate(3deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        .decorative-plants {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 10;
+            overflow: visible;
+        }
+        
+        .plant {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 1;
+        }
+        
+        .plant-left {
+            top: 20px;
+            left: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cg transform='translate(40,40)'%3E%3C!-- Stem --%3E%3Cpath d='M-1,0 L1,0 L1,35 L-1,35 Z' fill='%231a472a' /%3E%3C!-- Small Leaf Right --%3E%3Cpath d='M1,20 C6,15 8,18 6,22 C4,26 0,25 1,20' fill='%232e5c3d' /%3E%3C!-- Small Leaf Left --%3E%3Cpath d='M-1,23 C-6,18 -8,21 -6,25 C-4,29 0,28 -1,23' fill='%232e5c3d' /%3E%3C!-- Flower --%3E%3Cg%3E%3C!-- Petals --%3E%3Cg%3E%3C!-- Right Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(0)' /%3E%3C!-- Bottom Right Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(60)' /%3E%3C!-- Bottom Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(120)' /%3E%3C!-- Bottom Left Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(180)' /%3E%3C!-- Top Left Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(240)' /%3E%3C!-- Top Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(300)' /%3E%3C!-- Outline All Petals --%3E%3Cg transform='rotate(0)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(60)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(120)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(180)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(240)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(300)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3C/g%3E%3C!-- Center --%3E%3Ccircle cx='0' cy='0' r='3' fill='%23c5a572' stroke='black' stroke-width='0.5' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: floatAnimation 4s ease-in-out infinite;
+        }
+        
+        .plant-right {
+            top: 20px;
+            right: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cg transform='translate(40,40)'%3E%3C!-- Stem --%3E%3Cpath d='M-1,0 L1,0 L1,35 L-1,35 Z' fill='%231a472a' /%3E%3C!-- Small Leaf Right --%3E%3Cpath d='M1,20 C6,15 8,18 6,22 C4,26 0,25 1,20' fill='%232e5c3d' /%3E%3C!-- Small Leaf Left --%3E%3Cpath d='M-1,23 C-6,18 -8,21 -6,25 C-4,29 0,28 -1,23' fill='%232e5c3d' /%3E%3C!-- Flower --%3E%3Cg%3E%3C!-- Petals --%3E%3Cg%3E%3C!-- Right Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(0)' /%3E%3C!-- Bottom Right Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(60)' /%3E%3C!-- Bottom Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(120)' /%3E%3C!-- Bottom Left Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(180)' /%3E%3C!-- Top Left Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(240)' /%3E%3C!-- Top Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(300)' /%3E%3C!-- Outline All Petals --%3E%3Cg transform='rotate(0)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(60)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(120)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(180)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(240)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(300)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3C/g%3E%3C!-- Center --%3E%3Ccircle cx='0' cy='0' r='3' fill='%23c5a572' stroke='black' stroke-width='0.5' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: floatAnimation 4s ease-in-out infinite reverse;
+        }
+
+        :root {
+            --primary-color: #1a472a;
+            --secondary-color: #2e5c3d;
+            --accent-color: #c5a572;
+            --text-color: #2d3436;
+            --background-color: #E1EAE3;
+            --gold: #c5a572;
+            --white: #ffffff;
+            --dark-gold: #b08d4f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            background: var(--background-color);
+            min-height: 100vh;
+            color: var(--text-color);
+            position: relative;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- HOME PAGE ENHANCEMENTS --- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 0;
+            background: #e1eae3; /* solid light green */
+            opacity: 1;
+            animation: none;
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        .background-shapes {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+            will-change: transform;
+            background: var(--accent-color);
+            animation: float 60s infinite;
+        }
+        .shape.circle1 {
+            width: 180px;
+            height: 180px;
+            top: 30%;
+            left: 0%;
+            background: var(--gold);
+        }
+        .shape.circle2 {
+            width: 120px;
+            height: 120px;
+            top: 66%;
+            left: 85%;
+            background: var(--dark-gold);
+        }
+        .shape.circle3 {
+            width: 100px;
+            height: 100px;
+            top: 8%;
+            left: 85%;
+            position: absolute;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.7;
+            will-change: transform;
+            animation: float 60s infinite;
+        }
+        .shape.wave {
+            width: 100vw;
+            height: 120px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, #c5a572 0%, #1a472a 100%);
+            border-radius: 0 0 60px 60px;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(50px, 50px);
+            }
+            50% {
+                transform: translate(0, 100px);
+            }
+            75% {
+                transform: translate(-50px, 50px);
+            }
+        }
+        /* --- END HOME PAGE ENHANCEMENTS --- */
+
+        nav {
+            background: var(--primary-color);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 3px solid #c5a572;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* ...existing code... */
+
+        .container {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 4rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+            margin-top: 100px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(197, 165, 114, 0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .profile-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 1px solid rgba(197, 165, 114, 0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .profile-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.5rem;
+        }
+
+        .profile-section p {
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .profile-content {
+            flex: 1;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .hobby-images {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .hobby-image {
+            width: calc(50% - 0.5rem);
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            object-position: center;
+            border: 2px solid var(--gold);
+            transition: transform 0.3s ease;
+        }
+
+        .hobby-image.reading1 {
+            object-position: bottom left;
+            object-fit: cover;
+        }
+
+        .hobby-image:hover {
+            transform: scale(1.05);
+        }
+
+        .hobby-image.music2 {
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            margin-right: -2px; /* Compensate for the border width */
+        }
+
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+            }
+
+            .hobby-images {
+                flex-direction: column;
+            }
+
+            .hobby-image {
+                width: 100%;
+            }
+        }
+
+        .hobby-highlight {
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+
+        .hobby-highlight h3 {
+            color: var(--primary-color);
+            margin: 1rem 0;
+            font-size: 1.3rem;
+        }
+
+        .book-shape {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            background: linear-gradient(135deg, var(--primary-color), var(--gold));
+        }
+
+        .welcome-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            text-align: center;
+        }
+
+        .name-title {
+            font-size: 1.8rem;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-family: 'Crimson Text', Georgia, serif;
+            font-weight: normal;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            border: 2px solid var(--gold);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(26, 71, 42, 0.2);
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .social-links-container {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            position: relative;
+            padding: 0.5rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+            background: var(--primary-color);
+            border-color: var(--gold);
+        }
+
+        .email-text {
+            font-size: 1rem;
+            color: var(--primary-color);
+            margin-left: 0.5rem;
+            opacity: 0;
+            max-width: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .social-links-container:hover .email-text {
+            opacity: 1;
+            max-width: 300px;
+            margin-left: 1rem;
+        }
+
+        .video-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 1px solid rgba(197, 165, 114, 0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .video-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.5rem;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            /* Set a fixed aspect ratio to make it more square */
+            aspect-ratio: 4/3;
+        }
+
+        .introduction-video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center center;
+            background-color: #f0f0f0;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .video-section {
+                padding: 1.5rem;
+            }
+            
+            .video-container {
+                max-width: 100%;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(50px, 50px);
+            }
+            50% {
+                transform: translate(0, 100px);
+            }
+            75% {
+                transform: translate(-50px, 50px);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .welcome-text {
+                font-size: 2rem;
+            }
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+            border-top: 3px solid var(--gold);
+            opacity: 1;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        footer p a {
+            background: #1a472a !important;
+            color: #fff !important;
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-shapes">
+    <div class="shape circle1"></div>
+    <div class="shape circle2"></div>
+    <div class="shape circle3"></div>
+    </div>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="hobbies.html">Hobbies</a>
+                <a href="discover.html">Discover UMD</a>
+                <a href="resume.html">Resume</a>
+                <a href="career.html">Career</a>
+                <a href="game.html">Game</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="decorative-plants">
+            <div class="plant plant-left"></div>
+            <div class="plant plant-right"></div>
+        </div>
+        <h1 class="welcome-text">Welcome to My Website!</h1>
+        <h2 class="name-title">Leah Kotsmith</h2>
+
+        <div class="profile-section">
+            <img src="images/headshot.jpg" alt="Leah Kotsmith Headshot" class="profile-image">
+            <div class="profile-content">
+                <h2>Professional Introduction</h2>
+                <p>My name is Leah Kotsmith, and I am an Accounting major at the University of Minnesota Duluth with a minor in English. I have maintained a 3.9 GPA and have earned Dean's List honors every semester. Along with my coursework in financial, managerial, cost, and intermediate accounting, I gained professional experience as a receptionist at Great Clips, where I developed strong organizational, communication, and leadership skills. I am eager to apply my detail orientation, analytical ability, and communication skills in an internship setting this summer to continue growing as an accounting professional.</p>
+            </div>
+        </div>
+
+        <div class="video-section">
+            <h2>Introduction Video</h2>
+            <div class="video-container">
+                <iframe class="introduction-video" width="100%" height="100%" src="https://www.youtube.com/embed/66zZakQ0TRg" title="Introduction Video" frameborder="0" allowfullscreen style="background-color: #f0f0f0; border: none; display: block; object-fit: cover; object-position: center center;"></iframe>
+            </div>
+        </div>
+        
+        <div class="feature-cards">
+            <div class="card hobby-highlight">
+                <i class="fas fa-book-open"></i>
+                <h3>Reading</h3>
+                <p>Reading has always been one of my favorite ways to learn and unwind. I enjoy exploring different genres, from contemporary fiction to fantasy that expands my perspective on the world. For me, reading is both a source of inspiration and a way to sharpen my critical thinking skills. It encourages creativity, relaxation, focus, and often sparks new ideas that connect to my personal and professional life.</p>
+                <div class="hobby-images">
+                    <img src="images/reading1.jpg" alt="Reading in cozy bedroom" class="hobby-image reading1">
+                    <img src="images/reading2.jpg" alt="Reading on a boat in the summer" class="hobby-image">
+                </div>
+            </div>
+            <div class="card hobby-highlight">
+                <i class="fas fa-music"></i>
+                <h3>Music</h3>
+                <p>Music has always been an important part of my life. I played the clarinet for eight years, and I also enjoy listening to a wide range of music and going to concerts. I have always loved escaping through music and being transported to different times and settings, and I love using it to connect with others. Whether it's playing or simply listening, music is something that inspires me and brings joy to my everyday life.</p>
+                <div class="hobby-images">
+                    <img src="images/music1.jpg" alt="Selfie at a Taylor Swift Concert with a friend" class="hobby-image">
+                    <img src="images/music2.jpg" alt="Playing clarinet at school concert" class="hobby-image">
+                </div>
+            </div>
+        </div>
+
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Leah Kotsmith. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
