@@ -127,6 +127,21 @@
             text-align: center;
         }
 
+                          @media (max-width: 700px) {
+                    .contact-info {
+                      grid-template-columns: 1fr !important;
+                      gap: 1rem !important;
+                      padding: 1.2rem !important;
+                      overflow-x: auto;
+                      max-width: 100vw;
+                    }
+                    .contact-info p {
+                      font-size: 1rem !important;
+                      gap: 0.8rem !important;
+                      flex-wrap: wrap;
+                      word-break: break-word;
+                    }
+                  }
         /* Decorative Elements */
         .decorative-plants {
             position: fixed;
