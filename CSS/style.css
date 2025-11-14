@@ -1,3 +1,21 @@
+@media (max-width: 600px) {
+	.nav-content {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 0.5rem 1rem;
+	}
+	.nav-links {
+		flex-direction: column;
+		gap: 0.5rem;
+		width: 100%;
+	}
+	.nav-links a {
+		font-size: 1rem;
+		padding: 0.5rem 0;
+		width: 100%;
+		text-align: left;
+	}
+}
 /* Flower Decorations */
 @keyframes floatAnimation {
 	0% { transform: translate(0, 0) rotate(0deg); }
@@ -48,5 +66,6 @@
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cg transform='translate(40,40)'%3E%3C!-- Stem --%3E%3Cpath d='M-1,0 L1,0 L1,35 L-1,35 Z' fill='%231a472a' /%3E%3C!-- Small Leaf Right --%3E%3Cpath d='M1,20 C6,15 8,18 6,22 C4,26 0,25 1,20' fill='%232e5c3d' /%3E%3C!-- Small Leaf Left --%3E%3Cpath d='M-1,23 C-6,18 -8,21 -6,25 C-4,29 0,28 -1,23' fill='%232e5c3d' /%3E%3C!-- Flower --%3E%3Cg%3E%3C!-- Petals --%3E%3Cg%3E%3C!-- Right Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(0)' /%3E%3C!-- Bottom Right Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(60)' /%3E%3C!-- Bottom Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(120)' /%3E%3C!-- Bottom Left Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(180)' /%3E%3C!-- Top Left Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(240)' /%3E%3C!-- Top Petal --%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' fill='%23E6E6FA' transform='rotate(300)' /%3E%3C!-- Outline All Petals --%3E%3Cg transform='rotate(0)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(60)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(120)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(180)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(240)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3Cg transform='rotate(300)'%3E%3Cpath d='M0,0 C5,-5 15,-5 15,0 C15,5 5,5 0,0' stroke='black' stroke-width='0.75' fill='none' /%3E%3C/g%3E%3C/g%3E%3C!-- Center --%3E%3Ccircle cx='0' cy='0' r='3' fill='%23c5a572' stroke='black' stroke-width='0.5' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 	animation: floatAnimation 4s ease-in-out infinite reverse;
 }
+
 
 
