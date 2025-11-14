@@ -426,6 +426,26 @@
             font-size: 0.9rem;
             opacity: 0.9;
         }
+
+                @media (max-width: 600px) {
+  .nav-content {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0.5rem 1rem !important;
+  }
+  .nav-links {
+    flex-direction: row !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    padding-bottom: 0.5rem !important;
+  }
+  .nav-links a {
+    font-size: 0.85rem !important;
+    padding: 0.5rem 0.5rem !important;
+    min-width: max-content !important;
+  }
+}
     </style>
 </head>
 <body>
